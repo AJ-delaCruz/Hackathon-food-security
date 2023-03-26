@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login";
 import MangoData from "./components/Yield/MangoData";
 import WalnutData from "./components/Yield/WalnutData";
+import SankeyChart from "./components/Import/SankeyChart";
+import Import from "./components/Import/Import";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
                 <Route path="/login" element={<Login/>}></Route>
                 <Route path="/mangoyield" element={<MangoData/>}></Route>
                 <Route path="/walnutyield" element={<WalnutData/>}></Route>
+                <Route path="/import" element={<Import/>}></Route>
+
 
 
 

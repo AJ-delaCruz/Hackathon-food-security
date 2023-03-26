@@ -7,7 +7,7 @@ const Footer = () => {
             <Left>
                 <Logo>FOOD SECURITY</Logo>
                 <Desc>
-                    Discover information on the macroeconomic, agricultural, debt, and crop yields
+                    Discover information on the macroeconomic, agricultural, debt, import, and crop yields
                     in various regions around the world.
                 </Desc>
 

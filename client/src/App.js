@@ -5,6 +5,8 @@ import Walnuts from "./components/specialtyCrops/Walnuts";
 import Bananas from "./components/specialtyCrops/Bananas";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login";
+import MangoData from "./components/Yield/MangoData";
+import WalnutData from "./components/Yield/WalnutData";
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
                 <Route path="/bananas" element={<Bananas />}></Route>
                 <Route path="/footer" element={<Footer />}></Route>
                 <Route path="/login" element={<Login/>}></Route>
+                <Route path="/mangoyield" element={<MangoData/>}></Route>
+                <Route path="/walnutyield" element={<WalnutData/>}></Route>
+
+
 
 
 

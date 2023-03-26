@@ -9,6 +9,8 @@ import MangoData from "./components/Yield/MangoData";
 import WalnutData from "./components/Yield/WalnutData";
 import SankeyChart from "./components/Import/SankeyChart";
 import Import from "./components/Import/Import";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Navbar/home";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
                 <Route path="/mangoyield" element={<MangoData/>}></Route>
                 <Route path="/walnutyield" element={<WalnutData/>}></Route>
                 <Route path="/import" element={<Import/>}></Route>
+                <Route path="/navbar" element={<Navbar/>}></Route>
+                <Route path="/home" element={<Home />}></Route>
+
+
 
 
 

@@ -1,5 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
+import Header from "../Navbar/header";
+import NavBar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const CaliforniaMap = () => {
     const mapRef = useRef(null);
@@ -65,19 +68,29 @@ const IranMap = () => {
 
 const Walnuts = () => {
     return (
-        <Container>
-            <h1>Specialty Crops - Walnuts</h1>
-            <MapsContainer>
-                <MapContainer>
-                    <h2>California</h2>
-                    <CaliforniaMap/>
-                </MapContainer>
-                <MapContainer>
-                    <h2>Iran</h2>
-                    <IranMap/>
-                </MapContainer>
-            </MapsContainer>
-        </Container>
+        <div>
+            < div className="row">
+                <Header/>
+            </div>
+            <div className='row'>
+                <div className='col-md-2'><NavBar/></div>
+                <Container>
+                    <h1>Specialty Crops - Walnuts</h1>
+                    <MapsContainer>
+                        <MapContainer>
+                            <h2>California</h2>
+                            <CaliforniaMap/>
+                        </MapContainer>
+                        <MapContainer>
+                            <h2>Iran</h2>
+                            <IranMap/>
+                        </MapContainer>
+                    </MapsContainer>
+                </Container>
+            </div>
+            <Footer/>
+
+        </div>
     );
 }
 const Container = styled.div`

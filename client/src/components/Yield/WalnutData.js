@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import * as XLSX from 'xlsx';
 import walnutsData from '../../Data/Iran_FAOSTAT_data_en_11-11-2022.xlsx';
 import WalnutChart1 from "./WalnutChart1";
 import WalnutChart2 from "./WalnutChart2";
+import Header from "../Navbar/header";
+import NavBar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 function WalnutData() {
     const [data, setData] = useState([]);
@@ -14,15 +17,15 @@ function WalnutData() {
             try {
                 const response = await fetch(walnutsData);
                 const buffer = await response.arrayBuffer();
-                const workbook = XLSX.read(buffer, { type: 'array' });
+                const workbook = XLSX.read(buffer, {type: 'array'});
                 const sheetName = workbook.SheetNames[0];
                 const sheetName2 = workbook.SheetNames[1];
 
                 const worksheet = workbook.Sheets[sheetName];
                 const worksheet2 = workbook.Sheets[sheetName2];
 
-                const data = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false });
-                const data2 = XLSX.utils.sheet_to_json(worksheet2, { header: 1, raw: false });
+                const data = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: false});
+                const data2 = XLSX.utils.sheet_to_json(worksheet2, {header: 1, raw: false});
 
                 console.log(data);
                 setData(data.slice(1));
@@ -36,10 +39,18 @@ function WalnutData() {
     }, []);
 
     return (
+
         <div>
-            <h1>Iran Walnuts</h1>
-            <WalnutChart1 data={data} />
-            <WalnutChart2 data={data2} />
+            <div className="row">
+                <Header/>
+            </div>
+            <div className='row'>
+                <div className='col-md-2'><NavBar/></div>
+                <h1>Iran Walnuts</h1>
+                <WalnutChart1 data={data}/>
+                <WalnutChart2 data={data2}/>
+            </div>
+            <Footer/>
         </div>
     );
 }

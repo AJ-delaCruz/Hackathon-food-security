@@ -1,7 +1,9 @@
 import Chart from 'react-google-charts'
-import { useState } from "react";
-import { Button, Form } from 'react-bootstrap';
-
+import React, {useState} from "react";
+import {Button, Form} from 'react-bootstrap';
+import NavBar from "../Navbar/Navbar";
+import Header from "../Navbar/header";
+import Footer from "../Footer/Footer";
 
 
 export default function Import(props) {
@@ -10,8 +12,6 @@ export default function Import(props) {
     let [country, setCountry] = useState('Egypt');
     let [product, setProduct] = useState('Wheat');
     let [displayVar, setVar] = useState('EgyptWheat2020');
-
-
 
 
     var SARice2020 = [['ReporterCountries', 'PartnerCountries', 'Value'],
@@ -371,57 +371,67 @@ export default function Import(props) {
     let [displayPie, setPieDisplay] = useState(PieEgyptWheat2020);
 
     return (
-        <div>
 
+        <div>
+            <div className="row">
+                <Header/>
+            </div>
             <div className='row'>
-                <div className="col-md-1 vl"></div>
-                <div className='col-md-8 main-container'>
-                    <div className="row">
-                        <div class="col-md-3">
-                            <Form.Group >
-                                <Form.Label>Year: </Form.Label>
-                                <Form.Select value={year} required name='from' onChange={e => setYear(e.target.value)}>
-                                    <option value="">Select Year</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                </Form.Select>
-                            </Form.Group>
-                        </div>
-                        <div class="col-md-3">
-                            <Form.Group >
-                                <Form.Label>Country: </Form.Label>
-                                <Form.Select value={country} required name='to' onChange={e => setCountry(e.target.value)}>
-                                    <option value="">Select Country</option>
-                                    <option value="SA">Saudi Arabia</option>
-                                    <option value="Egypt">Egypt</option>
-                                </Form.Select>
-                            </Form.Group>
-                        </div>
-                        <div class="col-md-3">
-                            <Form.Group >
-                                <Form.Label>Product: </Form.Label>
-                                <Form.Select value={product} onChange={e => setProduct(e.target.value)}>
-                                    <option value="">Product</option>
-                                    <option value="Wheat">Wheat</option>
-                                    <option value="Rice">Rice</option>
-                                </Form.Select>
-                            </Form.Group>
-                        </div>
-                        <div class="col-md-3">
-                            <br />
-                            <Button variant="secondary" className="pure-u-1-6 btn-spacing" align="center" onClick={(e) => onButtonClick(e)}>
-                                Submit
-                            </Button>
-                        </div>
+                <div className='col-md-2'><NavBar/></div>
+                <div className='row'>
+                    <div className="col-md-1 vl"></div>
+                    <div className='col-md-8 main-container'>
                         <div className="row">
-                            <div id='chart-area'>
-                                <CustomCharts displayChart={displayChart} displayPie={displayPie} />
+                            <div class="col-md-3">
+                                <Form.Group>
+                                    <Form.Label>Year: </Form.Label>
+                                    <Form.Select value={year} required name='from'
+                                                 onChange={e => setYear(e.target.value)}>
+                                        <option value="">Select Year</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                    </Form.Select>
+                                </Form.Group>
                             </div>
+                            <div class="col-md-3">
+                                <Form.Group>
+                                    <Form.Label>Country: </Form.Label>
+                                    <Form.Select value={country} required name='to'
+                                                 onChange={e => setCountry(e.target.value)}>
+                                        <option value="">Select Country</option>
+                                        <option value="SA">Saudi Arabia</option>
+                                        <option value="Egypt">Egypt</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                            <div class="col-md-3">
+                                <Form.Group>
+                                    <Form.Label>Product: </Form.Label>
+                                    <Form.Select value={product} onChange={e => setProduct(e.target.value)}>
+                                        <option value="">Product</option>
+                                        <option value="Wheat">Wheat</option>
+                                        <option value="Rice">Rice</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                            <div class="col-md-3">
+                                <br/>
+                                <Button variant="secondary" className="pure-u-1-6 btn-spacing" align="center"
+                                        onClick={(e) => onButtonClick(e)}>
+                                    Submit
+                                </Button>
+                            </div>
+
+
+                        </div>
+                        <div id='chart-area'>
+                            <CustomCharts displayChart={displayChart} displayPie={displayPie}/>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
 
     );
@@ -430,6 +440,7 @@ export default function Import(props) {
 
 function CustomCharts(props) {
     return (
+
         <div id='chart-area'>
             <div>
 
@@ -439,7 +450,7 @@ function CustomCharts(props) {
                     chartType="Sankey"
                     loader={<div>Loading Chart</div>}
                     data={props.displayChart}
-                    rootProps={{ 'data-testid': '1' }}
+                    rootProps={{'data-testid': '1'}}
                 />
             </div>
             <div>
@@ -451,7 +462,7 @@ function CustomCharts(props) {
                     legendToggle
                 />
             </div>
-
         </div>
+
     );
 }

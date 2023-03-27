@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="row header">
+        <div className="header">
             <div className="col-md-4 header-elements">
                 <span>Food Security</span>
             </div>
@@ -10,5 +10,6 @@ const Header = () => {
         </div>
     )
 }
+
 
 export default Header;

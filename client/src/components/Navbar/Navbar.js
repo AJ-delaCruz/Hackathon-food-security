@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../../App.css';
 import { MenuCard } from './home';
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend';

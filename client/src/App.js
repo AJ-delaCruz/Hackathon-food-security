@@ -21,7 +21,7 @@ function App() {
                 <Route path="/walnuts" element={<Walnuts />}></Route>
                 <Route path="/bananas" element={<Bananas />}></Route>
                 <Route path="/footer" element={<Footer />}></Route>
-                <Route path="/login" element={<Login/>}></Route>
+                <Route path="/" element={<Login/>}></Route>
                 <Route path="/mangoyield" element={<MangoData/>}></Route>
                 <Route path="/walnutyield" element={<WalnutData/>}></Route>
                 <Route path="/import" element={<Import/>}></Route>
